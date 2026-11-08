@@ -11,7 +11,7 @@ class SecureStorage {
     aOptions: const AndroidOptions(
       encryptedSharedPreferences: true,
     ),
-    iOptions: const IOSOptions(
+    iOptions: IOSOptions(
       accessibility: KeychainAccessibility.whenUnlocked,
     ),
   );

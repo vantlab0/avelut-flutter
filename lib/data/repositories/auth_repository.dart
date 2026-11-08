@@ -45,7 +45,7 @@ class AuthRepository {
       throw Exception('Sign up failed: no user returned');
     }
 
-    final profile = await _fetchProfile(response.user.id);
+    final profile = await _fetchProfile(response.user!.id);
     return profile;
   }
 
@@ -60,7 +60,7 @@ class AuthRepository {
     await AvelutSupabaseClient.client.auth.resetPasswordForEmail(email);
   }
 
-  /// Sign in with Google (web native / mobile deep link).
+  /// Sign in with Google (mobile deep link).
   Future<void> signInWithGoogle() async {
     await AvelutSupabaseClient.client.auth.signInWithOAuth(
       OAuthProvider.google,

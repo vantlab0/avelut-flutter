@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:avelut_flutter/core/network/supabase_client.dart';
 
 /// Stream of auth state changes from Supabase.
