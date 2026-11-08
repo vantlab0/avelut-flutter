@@ -9,14 +9,12 @@ class AvelutSupabaseClient {
   static SupabaseClient get client => Supabase.instance.client;
 
   /// Auth stream — emits the current session (null when signed out).
-  Stream<AuthState> get authStateChanges => client.auth.onAuthStateChange;
+  static Stream<AuthState> get authStateChanges =>
+      client.auth.onAuthStateChange;
 
   /// Current session, or null if not signed in.
-  Session? get currentSession => client.auth.currentSession;
+  static Session? get currentSession => client.auth.currentSession;
 
   /// Current user, or null if not signed in.
-  User? get currentUser => client.auth.currentUser;
-
-  /// Storage bucket access.
-  StorageClient get storage => client.storage;
+  static User? get currentUser => client.auth.currentUser;
 }

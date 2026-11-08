@@ -14,9 +14,6 @@ final goRouterProvider = Provider<GoRouter>((ref) => goRouter);
 final GoRouter goRouter = GoRouter(
   initialLocation: '/splash',
   redirect: (context, state) async {
-    final isAuthenticated = state.uri.pathSegments.isNotEmpty
-        ? false // placeholder; actual check via provider below
-        : false;
     // Auth gating is handled inside each screen using ref.watch(isAuthenticatedProvider)
     return null;
   },

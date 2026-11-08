@@ -1,14 +1,9 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:avelut_flutter/core/network/supabase_client.dart';
 import 'package:avelut_flutter/core/storage/secure_storage.dart';
 import 'package:avelut_flutter/data/models/user_profile.dart';
 
 /// Auth repository — wraps Supabase auth + profile sync.
 class AuthRepository {
-  AuthRepository(this._ref);
-
-  final Ref _ref;
-
   /// Sign in with email + password.
   Future<UserProfile> signInWithEmail({
     required String email,
@@ -80,5 +75,5 @@ class AuthRepository {
 
 /// Provider for the auth repository.
 final authRepositoryProvider = Provider<AuthRepository>((ref) {
-  return AuthRepository(ref);
+  return AuthRepository();
 });

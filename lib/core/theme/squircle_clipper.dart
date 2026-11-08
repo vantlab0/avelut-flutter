@@ -30,7 +30,8 @@ class SquircleClipper extends CustomClipper<RRect> {
   }
 
   @override
-  bool shouldReclip(covariant SquircleClipper old) => old.radius != radius;
+  bool shouldReclip(covariant SquircleClipper oldClipper) =>
+      oldClipper.radius != radius;
 }
 
 /// Convenience: a container that clips its child (and its own decoration)
