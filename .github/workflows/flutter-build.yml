@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          path: avelut_flutter
 
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
@@ -20,19 +22,22 @@ jobs:
           channel: 'stable'
 
       - name: Generate native project (flutter create)
+        working-directory: avelut_flutter
         run: |
           flutter create --overwrite .
           flutter pub get
 
       - name: Analyze Dart code
+        working-directory: avelut_flutter
         run: flutter analyze
 
       - name: Build release APK
+        working-directory: avelut_flutter
         run: flutter build apk --release
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: avelut-release-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: avelut_flutter/build/app/outputs/flutter-apk/app-release.apk
           retention-days: 7
