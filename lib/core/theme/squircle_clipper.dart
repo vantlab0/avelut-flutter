@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'colors.dart';
 
 /// Squircle clip radius scale (all Avelut shapes use squircle, never circle/rect).
 class SquircleRadius {
@@ -39,7 +42,6 @@ class SquircleContainer extends StatelessWidget {
     this.color,
     this.decoration,
     this.border,
-    this.backdropFilter,
     this.child,
     this.clipBehavior = Clip.antiAlias,
   });
@@ -48,14 +50,13 @@ class SquircleContainer extends StatelessWidget {
   final Color? color;
   final Decoration? decoration;
   final BoxBorder? border;
-  final BackdropFilterStyle? backdropFilter;
   final Widget? child;
   final Clip clipBehavior;
 
   @override
   Widget build(BuildContext context) {
     final clip = ClipRRect(
-      borderRadius: Radius.circular(radius),
+      borderRadius: BorderRadius.circular(radius),
       clipBehavior: clipBehavior,
       child: child,
     );
@@ -69,17 +70,6 @@ class SquircleContainer extends StatelessWidget {
               borderRadius: BorderRadius.circular(radius),
             ),
         child: clip,
-      );
-    }
-
-    if (backdropFilter != null) {
-      return ClipRRect(
-        borderRadius: Radius.circular(radius),
-        clipBehavior: clipBehavior,
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
-          child: clip,
-        ),
       );
     }
 
@@ -115,7 +105,7 @@ class GlassSurface extends StatelessWidget {
             : AppColors.grayDark.withOpacity(borderOpacity);
 
     return ClipRRect(
-      borderRadius: Radius.circular(radius),
+      borderRadius: BorderRadius.circular(radius),
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: blurSigma, sigmaY: blurSigma),
         child: Container(

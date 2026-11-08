@@ -44,9 +44,9 @@ class AppTheme {
         foregroundColor: AppColors.pureWhite,
         elevation: 0,
         shadowColor: Colors.transparent,
-        shape: const SquircleContainer().decoration?.borderRadius != null
-            ? RoundedRectangleBorder(borderRadius: BorderRadius.circular(SquircleRadius.lg))
-            : const RoundedRectangleBorder(),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(SquircleRadius.lg),
+        ),
         padding: const EdgeInsets.symmetric(vertical: 14),
         textStyle: GoogleFonts.inter(
           fontSize: 15, fontWeight: FontWeight.w600,
