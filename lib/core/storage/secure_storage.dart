@@ -7,7 +7,7 @@ class SecureStorage {
   static final SecureStorage _instance = SecureStorage._();
   factory SecureStorage() => _instance;
 
-  final FlutterSecureStorage _storage = FlutterSecureStorage(
+  final FlutterSecureStorage _storage = const FlutterSecureStorage(
     aOptions: const AndroidOptions(
       encryptedSharedPreferences: true,
     ),
