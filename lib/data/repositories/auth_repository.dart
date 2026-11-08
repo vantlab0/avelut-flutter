@@ -56,10 +56,9 @@ class AuthRepository {
     await AvelutSupabaseClient.client.auth.resetPasswordForEmail(email);
   }
 
-  /// Sign in with Google (mobile deep link).
-  Future<void> signInWithGoogle() async {
-    await AvelutSupabaseClient.client.auth.signInWithOAuth('google');
-  }
+  // TODO: Google OAuth — implement in Phase 2 with confirmed supabase_flutter API.
+  // signInWithOAuth is not available on GoTrueClient in the resolved package version.
+  // Future<void> signInWithGoogle() async { ... }
 
   Future<UserProfile> _fetchProfile(String userId) async {
     final response = await AvelutSupabaseClient.client
