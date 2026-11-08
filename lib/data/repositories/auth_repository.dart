@@ -1,3 +1,4 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:avelut_flutter/core/network/supabase_client.dart';
 import 'package:avelut_flutter/core/storage/secure_storage.dart';
 import 'package:avelut_flutter/data/models/user_profile.dart';
@@ -57,9 +58,7 @@ class AuthRepository {
 
   /// Sign in with Google (mobile deep link).
   Future<void> signInWithGoogle() async {
-    await AvelutSupabaseClient.client.auth.signInWithOAuth(
-      OAuthProvider.google,
-    );
+    await AvelutSupabaseClient.client.auth.signInWithOAuth('google');
   }
 
   Future<UserProfile> _fetchProfile(String userId) async {

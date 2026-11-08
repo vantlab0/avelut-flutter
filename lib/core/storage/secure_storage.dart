@@ -11,9 +11,7 @@ class SecureStorage {
     aOptions: const AndroidOptions(
       encryptedSharedPreferences: true,
     ),
-    iOptions: IOSOptions(
-      accessibility: KeychainAccessibility.whenUnlocked,
-    ),
+    iOptions: const IOSOptions(),
   );
 
   Future<void> write(String key, String value) async {
