@@ -34,8 +34,8 @@ dependencies:
   dio: ^5.5.0+1
 
   # Push notifications
-  firebase_messaging: ^5.0.0
-  flutter_local_notifications: ^16.0.0
+  firebase_messaging: ^14.7.1
+  flutter_local_notifications: ^16.1.0
 
   # Utilities
   share_plus: ^9.0.0
