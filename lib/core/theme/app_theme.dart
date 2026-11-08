@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:avelut_flutter/core/theme/squircle_clipper.dart';
 import 'colors.dart';
 
 /// Avelut app theme built on off-black / off-white glassmorphism + squircle shapes.
@@ -123,12 +124,12 @@ class AppTheme {
     ),
 
     switchTheme: SwitchThemeData(
-      thumbColor: MaterialStateProperty.resolveWith<Color>((states) {
-        if (states.contains(MaterialState.selected)) return AppColors.brandBlue;
+      thumbColor: WidgetStateProperty.resolveWith<Color>((states) {
+        if (states.contains(WidgetState.selected)) return AppColors.brandBlue;
         return AppColors.grayDark;
       }),
-      trackColor: MaterialStateProperty.resolveWith<Color>((states) {
-        if (states.contains(MaterialState.selected))
+      trackColor: WidgetStateProperty.resolveWith<Color>((states) {
+        if (states.contains(WidgetState.selected))
           return AppColors.brandBlue.withOpacity(0.3);
         return AppColors.grayDark.withOpacity(0.4);
       }),
@@ -252,12 +253,12 @@ class AppTheme {
     ),
 
     switchTheme: SwitchThemeData(
-      thumbColor: MaterialStateProperty.resolveWith<Color>((states) {
-        if (states.contains(MaterialState.selected)) return AppColors.brandBlue;
+      thumbColor: WidgetStateProperty.resolveWith<Color>((states) {
+        if (states.contains(WidgetState.selected)) return AppColors.brandBlue;
         return AppColors.grayMedium;
       }),
-      trackColor: MaterialStateProperty.resolveWith<Color>((states) {
-        if (states.contains(MaterialState.selected))
+      trackColor: WidgetStateProperty.resolveWith<Color>((states) {
+        if (states.contains(WidgetState.selected))
           return AppColors.brandBlue.withOpacity(0.3);
         return AppColors.grayLight;
       }),

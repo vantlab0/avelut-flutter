@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:avelut_flutter/presentation/state/auth_provider.dart';
 
 /// Centralized route configuration for Avelut Flutter.
 ///

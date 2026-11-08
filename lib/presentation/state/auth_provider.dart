@@ -3,12 +3,12 @@ import 'package:avelut_flutter/core/network/supabase_client.dart';
 
 /// Stream of auth state changes from Supabase.
 final authStateProvider = StreamProvider<AuthState>((ref) {
-  return SupabaseClient.client!.authStateChanges;
+  return AvelutSupabaseClient.client.authStateChanges;
 });
 
 /// Current authenticated user (nullable).
 final currentUserProvider = Provider<User?>((ref) {
-  return SupabaseClient.client!.currentUser;
+  return AvelutSupabaseClient.client.currentUser;
 });
 
 /// Whether the user is currently signed in.

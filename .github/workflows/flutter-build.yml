@@ -35,6 +35,10 @@ jobs:
         working-directory: avelut_flutter
         run: flutter pub get
 
+      - name: Generate model code (build_runner)
+        working-directory: avelut_flutter
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+
       - name: Analyze Dart code
         working-directory: avelut_flutter
         run: flutter analyze

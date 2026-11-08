@@ -14,7 +14,7 @@ class AuthRepository {
     required String email,
     required String password,
   }) async {
-    final response = await SupabaseClient.client!.auth.signInWithPassword(
+    final response = await AvelutSupabaseClient.client.auth.signInWithPassword(
       email: email,
       password: password,
     );
@@ -35,7 +35,7 @@ class AuthRepository {
     required String password,
     required String fullName,
   }) async {
-    final response = await SupabaseClient.client!.auth.signUp(
+    final response = await AvelutSupabaseClient.client.auth.signUp(
       email: email,
       password: password,
       data: {'full_name': fullName},
@@ -52,23 +52,23 @@ class AuthRepository {
   /// Sign out.
   Future<void> signOut() async {
     await SecureStorage().deleteAll();
-    await SupabaseClient.client!.auth.signOut();
+    await AvelutSupabaseClient.client.auth.signOut();
   }
 
   /// Reset password via email.
   Future<void> resetPassword(String email) async {
-    await SupabaseClient.client!.auth.resetPasswordForEmail(email);
+    await AvelutSupabaseClient.client.auth.resetPasswordForEmail(email);
   }
 
   /// Sign in with Google (web native / mobile deep link).
   Future<void> signInWithGoogle() async {
-    await SupabaseClient.client!.auth.signInWithOAuth(
+    await AvelutSupabaseClient.client.auth.signInWithOAuth(
       OAuthProvider.google,
     );
   }
 
   Future<UserProfile> _fetchProfile(String userId) async {
-    final response = await SupabaseClient.client!
+    final response = await AvelutSupabaseClient.client
         .from('profiles')
         .select()
         .eq('id', userId)
